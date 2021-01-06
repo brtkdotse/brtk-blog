@@ -9,8 +9,6 @@ ArchiveTitle: >
   => $"{Title}{(GetInt("Index") > 1 ? (" (Page " + GetInt("Index") + ")") : null)}"
 ---
 
-<section class="blog-section">
-    <div class="blog-container">
-        @Html.Partial($"/{Constants.BlogPath}/_posts.cshtml", Document.GetChildren())
-    </div>
-</section>
+
+  @Html.Partial($"/{Constants.BlogPath}/_posts.cshtml", Document.GetChildren())
+

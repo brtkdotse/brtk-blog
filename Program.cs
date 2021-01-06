@@ -11,6 +11,10 @@ namespace StatiqBlog
         static async Task<int> Main(string[] args) =>
             await Bootstrapper.Factory
                 .CreateWeb(args)
+                .DeployToNetlify(
+                   Config.FromSetting<string>("SiteID"),
+                   Config.FromSetting<string>("APIKey")
+                )
                 .AddSetting(Keys.Host, new Uri(Constants.SiteUri).Host)
                 .AddSetting(Keys.LinksUseHttps, true)
                 .AddSetting(
@@ -26,6 +30,7 @@ namespace StatiqBlog
                             }
                             return doc.Destination;
                         }))
+                
                 .RunAsync();
     }
 }

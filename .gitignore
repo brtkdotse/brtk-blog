@@ -351,3 +351,5 @@ MigrationBackup/
 
 # Statiq output folder
 output/
+
+appsettings.json
